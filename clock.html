@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div#clock {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 70px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    border: 1px solid #000;
+    border-radius: 12px;
+    background: #000;
+    color: #fff;
+    padding: 50px 30px;
+}
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 70px;
+    font-weight: 900;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+    </style>
+</head>
+<body onload="showTime()">
+
+    <h1>Clock</h1>
+    <div id="clock"></div>
+</body>
+<script>
+    function showTime(){
+        var mydate = new Date();
+        var myhour = mydate.getHours();
+        var myminuts = mydate.getMinutes();
+        var secound = mydate.getSeconds();
+        var session = "AM";
+
+        if (myhour >=12){
+            session = "PM"
+        }
+
+        if (myhour > 12) {
+            myhour = myhour - 12;
+        }
+
+       if (myhour < 10) {
+            myhour = "0" + myhour;
+        }
+        if (myminuts < 10) {
+            myminuts = "0" + myminuts;
+        }
+        if (secound < 10) {
+            secound = "0" + secound;
+        }
+
+        var time = myhour + " : " + myminuts + " : " + secound + " " + session;
+
+        document.getElementById('clock').innerText = time;
+        setTimeout(showTime, 1000);
+    }
+</script>
+</html>
