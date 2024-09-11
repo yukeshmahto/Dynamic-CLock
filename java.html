@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+
+
+    <style>
+    form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: auto;
+    padding: 50px 50px;
+    row-gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 12px;
+    margin-top: 100px;
+}
+input {
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+}
+label {
+    width: 90%;
+    margin: auto;
+}
+h3.jfhhj {
+    margin-top: 0;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+input#button {
+    width: 50%;
+    margin: auto;
+    text-transform: uppercase;
+}
+    </style>
+</head>
+<body>
+
+<h2>JavaScript Validation</h2>
+<form action="">
+<h3 class="jfhhj">Registration Form</h3>
+
+<label for="first_name">First Name</label>
+  <input type="text" id="first_name" placeholder="Enter your first name">
+  <div class="form_error" id="first_name_error"></div>
+
+  <label for="last_name">Last Name</label>
+  <input type="text" id="last_name" placeholder="Enter your last name">
+  <div class="form_error" id="last_name_error"></div>
+
+  <label for="phone_number">Phone No</label>
+  <input type="tel" id="phone_number" placeholder="Enter your mobile number">
+  <div class="form_error" id="phone_number_error"></div>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Enter your email">
+  <div class="form_error" id="email_error"></div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" placeholder="Your password">
+  <div class="form_error" id="password_error"></div>
+
+  <input type="button" id="button" value="registration" onclick="formValidation()">
+  <div id="form_message" style="margin-top: 10px; color: green;"></div>
+</form>
+
+
+
+
+<script>
+  function formValidation(){
+    let first_name = document.getElementById('first_name');
+    let last_name = document.getElementById('last_name');
+    let phone_number = document.getElementById('phone_number');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let emailExpression = /^[a-zA-z]+@[a-zA-z]+\.[a-zA-Z]{2,5}$/;
+    let nameExpression = /^[a-zA-z]+$/;
+    let phoneExpression = /^\d{10}$/;
+    let passwordExpression = /^[a-zA-z0-9][!@#%&?]/;
+
+    document.querySelectorAll('.form_error').forEach(function (error) {
+        error.innerHTML = '';
+    });
+
+    if(first_name.value == ""){
+      document.getElementById('first_name_error').innerHTML = 'This field is required';
+    }
+    else if (!first_name.value.match(nameExpression)){
+      first_name_error.innerHTML = 'Please Enter Valid Name'
+    }
+    if(last_name.value == ""){
+      document.getElementById('last_name_error').innerHTML = 'This field is required';
+    }
+    else if (!last_name.value.match(nameExpression)){
+      last_name_error.innerHTML = 'Please Enter Valid Name'
+    }
+    if (phone_number.value == "") {
+        document.getElementById('phone_number_error').innerHTML = 'This field is required';
+    } else if (!phone_number.value.match(phoneExpression)) {
+        document.getElementById('phone_number_error').innerHTML = 'Please enter a valid phone number (10 digits)';
+    }
+
+    if(email.value == ""){
+      document.getElementById('email_error').innerHTML = 'This field is required';
+    }
+    else if (!email.value.match(emailExpression)){
+      email_error.innerHTML = 'Please Enter Valid Email';
+ }
+    if(password.value == ""){
+      document.getElementById('password_error').innerHTML = 'This field is required';
+    }
+    
+
+ else (form_message.innerHTML = "Form has been Submitted Sucessfully");
+  }
+  </script>
+
+<script>
+  class company{
+    constructor(name){
+        this.name = name;
+        console.log(" hello "+ this.name +" what is your name constructor")
+    }
+    printmyname(place){
+        this.place = place;
+        console.log("hello "+ this.name +" how are you do you put up at "+this.place)
+    }
+    askmyname(){
+        console.log(" hello "+ this.name +" what is your name"+this.place)
+    }
+}
+class employee extends company{
+    constructor(name){
+        super(name)
+    }
+    printemployeename(){
+        console.log(" I am in printemployeename function")
+    }
+}
+let objectEmployee = new employee("Yukesh"); 
+objectEmployee.printemployeename();
+objectEmployee.printmyname('Delhi');
+</script>
+</body>
+</html>
